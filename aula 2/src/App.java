@@ -10,7 +10,7 @@ public class App {
         Integer opcao = 0;
         while(opcao != 6){
             
-            System.out.println("Este é um CRUD de alunos! Digite 1 para cadastrar\nDigite 2 para mostrar\nDigite 3 para deletar"); 
+            System.out.println("Este é um CRUD de alunos! \nDigite 1 para cadastrar\nDigite 2 para mostrar\nDigite 3 para deletar\nDigite 4 para editar"); 
             opcao = sc.nextInt();
             switch (opcao) {
                 case 1:
@@ -25,6 +25,12 @@ public class App {
                     System.out.println("Digite o id a ser deletado: ");
                     Integer id = sc.nextInt();
                     deletar(id);
+                    break;
+                case 4:
+                    mostrar();
+                    System.out.println("Digite o id a ser editado: ");
+                    Integer idEdit = sc.nextInt();
+                    editar(idEdit);
                     break;
             }
         }
@@ -44,6 +50,19 @@ public class App {
         alunos.add(aluno);
     }
 
+    public static void editar(Integer id){
+        Scanner sc = new Scanner(System.in);
+        Aluno aluno = alunos.get(id);
+        System.out.println("Digite o novo nome do aluno: ");
+        aluno.setNome(sc.nextLine());
+        System.out.println("Digite o novo curso do aluno: ");
+        aluno.setCurso(sc.nextLine());
+        System.out.println("Digite a nova turma do aluno: ");
+        aluno.setTurma(sc.nextLine());
+        System.out.println("Digite a nova idade do aluno: ");
+        aluno.setIdade(sc.nextInt());
+    }
+
     public static void mostrar(){
         for(int i = 0; i < alunos.size(); i++){
             Aluno aluno = alunos.get(i);
@@ -53,11 +72,14 @@ public class App {
             System.out.println("Idade: "+aluno.getIdade());
             System.out.println("Curso: "+aluno.getCurso());
             System.out.println("----------------------------------");
+
         }
+        
     }
 
     public static void deletar(Integer id){
         Aluno aluno = alunos.get(id);
         alunos.remove(aluno);
     }
+
 }
