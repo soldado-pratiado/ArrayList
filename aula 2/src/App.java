@@ -75,14 +75,12 @@ public class App {
         Scanner sc = new Scanner(System.in);
         Scanner sc2 = new Scanner(System.in);
         Aluno aluno = alunos.get(id);
-        System.out.println("Digite o novo nome do aluno: ");
-        aluno.setNome(sc.nextLine());
-        System.out.println("Digite o novo curso do aluno: ");
-        aluno.setCurso(sc.nextLine());
-        System.out.println("Digite a nova turma do aluno: ");
-        aluno.setTurma(sc.nextLine());
-        System.out.println("Digite a nova idade do aluno: ");
-        aluno.setIdade(sc.nextInt());
+        System.out.println("O nome do aluno é:" +aluno.getNome()+ "Digite o 1 para editar: ");
+        Integer opcao = sc.nextInt();
+        if (opcao == 1){
+        
+        }
+    
     }
 
 }
